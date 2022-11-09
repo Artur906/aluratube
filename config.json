@@ -3,6 +3,28 @@
    "name": "Artur Dantas Rodrigues",
    "job": "Aprendiz de Software de Engineer",
    "github": "Artur906",
+   "aluratubes": [
+      {
+         "name": "Deschamps",
+         "photo": "https://yt3.ggpht.com/ytc/AMLnZu9fwc9E-G17B2vMnbYzZBp_NYs4AmCE802y8x08=s88-c-k-c0x00ffffff-no-rj", 
+         "channel": "c/FilipeDeschamps"
+      },
+      {
+         "name": "Lucas Montano",
+         "photo": "https://yt3.ggpht.com/z0Ccoolotr1Q4F2EaCIgaR4GWLAR_VCwP25QrTica_e9XV6x8-kuQx_qnqI1mnaOkYl6KkIL=s88-c-k-c0x00ffffff-no-rj",
+         "channel": "c/LucasMontano"
+      },
+      {
+         "name": "Roberto Farias",
+         "photo": "https://yt3.ggpht.com/aK7SHkNVrDsxEnid0a0P-O2s_utdMv7YhUCac12Z5pFXtXsU-yBgsuIssaCFm16tPOvRbmVZUA=s88-c-k-c0x00ffffff-no-rj", 
+         "channel": "channel/UCNKietWOz7TzGrubPnf6uqg"
+      },
+      {
+         "name": "Ester",
+         "photo": "https://yt3.ggpht.com/ytc/AMLnZu9W2UCq4u5vhRjJbfBdpNBYKZX3R6eJZnB3QugPOSw=s68-c-k-c0x00ffffff-no-rj", 
+         "channel": "c/EsterDelgado1"
+      }
+   ],
    "playlists": {
       "jogos": [
          {

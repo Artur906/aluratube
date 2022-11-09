@@ -20,7 +20,7 @@ function HomePage() {
          }}>
             <Menu />
             <Header />
-            <Timeline playlists={config.playlists} />
+            <Timeline playlists={config.playlists} aluratubes={config.aluratubes} />
          </div>
       </>
    );
@@ -100,6 +100,25 @@ function Timeline(props) {
                </section>
             )
          })}
+         <section className="aluratubes-favoritos">
+            <h2>AluraTubes Favoritos</h2>
+            <div>
+               {
+                  props.aluratubes.map(aluratuber=> {
+                     return (
+                        <a href={`https://www.youtube.com/${aluratuber.channel}`}>
+                           <div className="aluratuber">
+                              <img src={aluratuber.photo}/>
+                              <span>
+                                 {aluratuber.name}
+                              </span>
+                           </div>
+                        </a>
+                     )
+                  })
+               }
+            </div>
+         </section>
       </StyledTimeline>
    )
 }
