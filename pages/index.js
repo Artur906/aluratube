@@ -1,3 +1,4 @@
+import React from "react"
 import config from "../config.json"
 import styled from "styled-components"
 import { CSSReset } from "../src/components/CSSReset"
@@ -8,6 +9,7 @@ function HomePage() {
    const estilosDaHomePage = {
 
    }
+   const [valorDoFiltro, setValorDoFiltro] = React.useState("")
 
    return (
       <>
@@ -18,9 +20,9 @@ function HomePage() {
             flex: 1,
             // backgroundColor: "red",
          }}>
-            <Menu />
+            <Menu valorDoFiltro={valorDoFiltro} setValorDoFiltro={setValorDoFiltro} />
             <Header />
-            <Timeline playlists={config.playlists} aluratubes={config.aluratubes} />
+            <Timeline searchValue={valorDoFiltro} playlists={config.playlists} aluratubes={config.aluratubes} />
          </div>
       </>
    );
@@ -42,11 +44,10 @@ const StyledHeader = styled.div`
       border-radius: 50%;
    }
 
-
    .banner {
       height: 250px;
       width: 100%;
-      object-fit: none;
+      object-fit: cover;
    }
 `
 
@@ -70,7 +71,7 @@ function Header() {
    )
 }
 
-function Timeline(props) {
+function Timeline({ searchValue, ...props }) {
 
    const playlistNames = Object.keys(props.playlists)
 
@@ -80,20 +81,26 @@ function Timeline(props) {
             const videos = props.playlists[playlistName]
 
             return (
-               <section>
+               <section key={playlistName}>
                   <h2>{playlistName}</h2>
                   <div>
                      {
-                        videos.map(video => {
-                           return (
-                              <a href={video.url}>
-                                 <img src={video.thumb} />
-                                 <span>
-                                    {video.title}
-                                 </span>
-                              </a>
-                           )
-                        })
+                        videos
+                           .filter(video => {
+                              const titleNormalized = video.title.toLowerCase()
+                              const searchValueNormalized = searchValue.toLowerCase()
+                              return titleNormalized.includes(searchValueNormalized)
+                           })
+                           .map(video => {
+                              return (
+                                 <a key={video.url} href={video.url}>
+                                    <img src={video.thumb} />
+                                    <span>
+                                       {video.title}
+                                    </span>
+                                 </a>
+                              )
+                           })
                      }
                   </div>
 
@@ -104,11 +111,11 @@ function Timeline(props) {
             <h2>AluraTubes Favoritos</h2>
             <div>
                {
-                  props.aluratubes.map(aluratuber=> {
+                  props.aluratubes.map(aluratuber => {
                      return (
                         <a href={`https://www.youtube.com/${aluratuber.channel}`}>
                            <div className="aluratuber">
-                              <img src={aluratuber.photo}/>
+                              <img src={aluratuber.photo} />
                               <span>
                                  {aluratuber.name}
                               </span>
