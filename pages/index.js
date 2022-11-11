@@ -6,20 +6,19 @@ import { StyledTimeline } from "../src/components/Timeline"
 import { Menu } from "../src/components/Menu"
 
 function HomePage() {
-   const estilosDaHomePage = {
-
-   }
+ 
    const [valorDoFiltro, setValorDoFiltro] = React.useState("")
 
    return (
       <>
-         <CSSReset />
          <div style={{
             display: "flex",
             flexDirection: "column",
             flex: 1,
             // backgroundColor: "red",
          }}>
+            //prop drilling
+            
             <Menu valorDoFiltro={valorDoFiltro} setValorDoFiltro={setValorDoFiltro} />
             <Header />
             <Timeline searchValue={valorDoFiltro} playlists={config.playlists} aluratubes={config.aluratubes} />
@@ -31,6 +30,9 @@ function HomePage() {
 export default HomePage
 
 const StyledHeader = styled.div`
+   background-color: ${({theme}) => theme.backgroundLevel1};
+
+
    .user-info{
       display: flex;
       align-items: center;
